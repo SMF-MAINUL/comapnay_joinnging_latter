@@ -1,0 +1,280 @@
+:root {
+    --primary: #2563eb;
+    --bg-dark: #0f172a;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* Background Animated Blobs */
+.background-blobs {
+    position: absolute; width: 400px; height: 400px;
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    filter: blur(100px); border-radius: 50%;
+    z-index: -1; animation: float 10s infinite alternate;
+}
+
+@keyframes float { from { transform: translate(-50%, -20%); } to { transform: translate(50%, 20%); } }
+
+.container {
+    width: 1000px; height: 700px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px; display: flex; overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px; background: rgba(0, 0, 0, 0.2);
+    padding: 40px; border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo { font-size: 24px; font-weight: 800; margin-bottom: 50px; }
+.logo span { color: var(--primary); }
+
+.step-item {
+    margin-bottom: 30px; opacity: 0.4; transition: 0.3s;
+    display: flex; align-items: center; gap: 15px;
+}
+.step-item.active { opacity: 1; color: var(--primary); font-weight: 600; }
+.step-item span {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 1px solid currentColor; display: grid; place-content: center;
+}
+
+/* Content Area */
+.content { flex: 1; padding: 50px; position: relative; }
+.step-section { display: none; }
+.step-section.active { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+h1 { font-size: 32px; margin-bottom: 8px; }
+.subtitle { color: #94a3b8; margin-bottom: 30px; font-size: 14px; }
+
+.policy-box, .script-box {
+    background: var(--glass); padding: 20px;
+    border-radius: 12px; height: 400px; overflow-y: auto;
+    font-size: 14px; line-height: 1.6; margin-bottom: 20px;
+}
+
+.input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+input[type="text"] {
+    width: 100%; background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px; border-radius: 8px; color: white; margin-top: 5px;
+}
+
+.btn-next, .btn-submit {
+    background: var(--primary); color: white; border: none;
+    padding: 12px 30px; border-radius: 8px; cursor: pointer; font-weight: 600;
+}
+.btn-prev { background: transparent; color: #94a3b8; border: none; cursor: pointer; }
+
+
+/* Offer Card Styling */
+.offer-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.offer-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 8px;
+}
+
+.offer-row strong { color: #94a3b8; }
+.offer-row span { color: #10b981; font-weight: 600; }
+
+.conditions-box {
+    margin-top: 20px;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.conditions-box h4 {
+    font-size: 14px;
+    color: #10b981;
+    margin-bottom: 10px;
+}
+
+.conditions-box ul {
+    font-size: 13px;
+    color: #cbd5e1;
+    padding-left: 18px;
+}
+
+/* Video Box */
+#webcam { width: 100%; height: 200px; border-radius: 12px; background: black; margin-bottom: 10px; }
+
+
+
+/* 
+.markdown-body h3 {
+    color: #10b981;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.markdown-body p {
+    margin-bottom: 12px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.markdown-body strong {
+    color: #ffffff;
+    font-weight: 600;
+} */
+
+
+/* --- Professional Markdown Styling --- */
+.markdown-body {
+    line-height: 1.7;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.markdown-body h3 {
+    color: #10b981; /* Emerald Green */
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* আইকন হিসেবে ছোট ডট যোগ করা (ঐচ্ছিক) */
+.markdown-body h3::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.markdown-body p {
+    margin-bottom: 16px;
+    color: #94a3b8; /* Muted slate for readability */
+    text-align: justify;
+}
+
+.markdown-body strong {
+    color: #f8fafc;
+    font-weight: 600;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.markdown-body ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style: none; /* কাস্টম বুলেটের জন্য */
+}
+
+.markdown-body li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    color: #cbd5e1;
+}
+
+/* কাস্টম বুলেটের ডিজাইন */
+.markdown-body li::before {
+    content: "→";
+    position: absolute;
+    left: -5px;
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* কাস্টম স্ক্রলবার (Policy Box এর জন্য) */
+.policy-box::-webkit-scrollbar {
+    width: 6px;
+}
+.policy-box::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+.policy-box::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.3);
+    border-radius: 10px;
+}
+.policy-box::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.6);
+}
+
+/* টেক্সট হাইলাইট কালার */
+::selection {
+    background: rgba(16, 185, 129, 0.3);
+    color: #fff;
+}
+
+
+/* --- Multi-purpose Notice/Alert Styling --- */
+.markdown-body blockquote {
+    margin: 25px 0;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 5px solid;
+    font-style: normal;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    backdrop-filter: blur(5px); /* হালকা গ্লাস ইফেক্ট */
+}
+
+/* Warning / Legal Notice (লাল) */
+.notice-danger {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-color: #ef4444 !important;
+    color: #fca5a5 !important;
+}
+.notice-danger strong { color: #ef4444 !important; }
+
+/* Info / General Notice (নীল) */
+.notice-info {
+    background: rgba(59, 130, 246, 0.1) !important;
+    border-color: #3b82f6 !important;
+    color: #93c5fd !important;
+}
+.notice-info strong { color: #3b82f6 !important; }
+
+/* Success / Update (সবুজ) */
+.notice-success {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-color: #10b981 !important;
+    color: #a7f3d0 !important;
+}
+.notice-success strong { color: #10b981 !important; }
+
+/* Separator */
+.markdown-body hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    margin: 30px 0;
+}
